@@ -1,0 +1,183 @@
+.artist-page {
+    padding: 2rem;
+}
+
+/* Artist Cover */
+
+.artist-cover {
+    position: relative;
+
+    height: 320px;
+
+    border-radius: 16px;
+    overflow: hidden;
+
+    background-size: cover;
+    background-position: center;
+
+    margin-bottom: 2rem;
+}
+
+.artist-cover::before {
+    content: "";
+
+    position: absolute;
+    inset: 0;
+
+    background: rgba(0, 0, 0, 0.65);
+
+    backdrop-filter: blur(10px);
+}
+
+.artist-overlay {
+    position: absolute;
+    inset: 0;
+
+    display: flex;
+    align-items: flex-end;
+
+    gap: 1.5rem;
+
+    padding: 2rem;
+}
+
+.artist-overlay img {
+    width: 160px;
+    height: 160px;
+
+    object-fit: cover;
+
+    border-radius: 12px;
+
+    border: 2px solid var(--border-color);
+}
+
+.artist-overlay h1 {
+    color: var(--primary-text);
+
+    font-size: 2.5rem;
+}
+
+.artist-overlay p {
+    color: var(--secondary-text);
+
+    margin-top: 0.5rem;
+}
+
+/* Section titles */
+
+.artist-page h2 {
+    color: var(--primary-text);
+
+    margin-bottom: 1rem;
+}
+
+/* Songs */
+
+.songs {
+    display: flex;
+
+    flex-direction: column;
+
+    align-items: center;
+
+    gap: 1rem;
+
+    width: 100%;
+}
+
+.songs .song-card {
+    width: 100%;
+    max-width: 700px;
+}
+
+/* Albums */
+
+.albums {
+    display: grid;
+
+    grid-template-columns: repeat(auto-fit, 160px);
+
+    justify-content: center;
+
+    gap: 1.5rem;
+}
+
+.album-card {
+    width: 160px;
+
+    background: var(--surface-color);
+
+    border: 1px solid var(--border-color);
+
+    border-radius: 12px;
+
+    overflow: hidden;
+
+    transition: transform 0.2s ease, border-color 0.2s ease;
+}
+
+.album-card img {
+    width: 160px;
+    height: 160px;
+
+    object-fit: cover;
+}
+
+.album-card h3 {
+    padding: 1rem;
+
+    color: var(--primary-text);
+
+    font-size: 1rem;
+}
+
+.album-card:hover {
+    transform: translateY(-4px);
+
+    border-color: var(--accent-color);
+}
+
+/* Mobile */
+
+@media (max-width: 800px) {
+    .artist-page {
+        padding: 1rem;
+    }
+
+    .artist-cover {
+        height: 250px;
+    }
+
+    .artist-overlay {
+        flex-direction: column;
+
+        justify-content: flex-end;
+
+        align-items: flex-start;
+
+        padding: 1.2rem;
+    }
+
+    .artist-overlay img {
+        width: 100px;
+        height: 100px;
+    }
+
+    .artist-overlay h1 {
+        font-size: 1.8rem;
+    }
+
+    .albums {
+        grid-template-columns: repeat(auto-fit, 140px);
+    }
+
+    .album-card {
+        width: 140px;
+    }
+
+    .album-card img {
+        width: 140px;
+        height: 140px;
+    }
+}

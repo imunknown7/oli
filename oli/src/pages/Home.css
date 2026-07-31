@@ -1,0 +1,29 @@
+.home {
+    max-width: 900px;
+    margin: 0 auto;
+    padding: 3rem 1.5rem;
+  }
+  
+  .home h1 {
+    font-size: 2.5rem;
+    margin-bottom: 2rem;
+  }
+  
+  .search-container {
+    display: flex;
+    gap: 1rem;
+  }
+  
+  .search-container input {
+    flex: 1;
+    padding: 0.8rem 1rem;
+  }
+  
+  .search-container button {
+    padding: 0.8rem 1.5rem;
+    cursor: pointer;
+  }
+  
+  .results {
+    margin-top: 2rem;
+  }

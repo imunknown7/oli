@@ -1,0 +1,12 @@
+.favorites-page {
+    padding: 2rem;
+}
+
+.favorites-page h1 {
+    margin-bottom: 2rem;
+    color: var(--primary-text);
+}
+
+.empty-message {
+    color: var(--secondary-text);
+}

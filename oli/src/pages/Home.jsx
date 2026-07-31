@@ -1,15 +1,19 @@
 import "./Home.css";
 import { useState } from "react";
+import SongCard from "../components/SongCard";
+import { FaSearch } from "react-icons/fa";
+import { useFavorites } from "../context/FavoritesContext";
 
 function Home() {
     const [searchTerm, setSearchTerm] = useState("");
     const [results, setResults] = useState([]);
 
     async function searchMusic() {
+        if (!searchTerm.trim()) return;
         const response = await fetch(
             `https://itunes.apple.com/search?term=${encodeURIComponent(
                 searchTerm
-            )}&limit=25`
+            )}&entity=song&limit=25`
         );
         const data = await response.json();
 
@@ -24,23 +28,26 @@ function Home() {
                     type="text"
                     name=""
                     id=""
+                    className="search-box"
                     placeholder="Search songs, artists or albums..."
                     value={searchTerm}
                     onChange={(e) => setSearchTerm(e.target.value)}
+                    onKeyDown={(e) => {
+                        if (e.key === "Enter") {
+                            searchMusic();
+                        }
+                    }}
                 />
-                <button onClick={searchMusic}>Search</button>
+                <button className="search-button" onClick={searchMusic}>
+                    <FaSearch />
+                </button>
             </div>
 
             <section className="results">
+                <h2>{searchTerm}</h2>
                 {results.map((song) => (
-                    <div key={song.trackId}>
-                        <h3>{song.trackName}</h3>
-                        <p>{song.artistName}</p>
-                    </div>
+                    <SongCard key={song.trackId} song={song} />
                 ))}
-                <h2>Results</h2>
-                <p>Nothing here yet.</p>
-                <p>{searchTerm}</p>
             </section>
         </main>
     );
